@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="me" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedsoftware | AI & Software Development Agency</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            900: '#030712',
+                            800: '#0b1329',
+                            700: '#111e3c',
+                            600: '#1d3557',
+                            accent: '#00f2fe',
+                            glow: '#4facfe'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(3, 7, 18, 0.7), rgba(3, 7, 18, 0.95)), url('watermarked_img_2767047866194613869.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .glow-box {
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.15);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+        }
+        .glow-box:hover {
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.4);
+            border-color: rgba(0, 242, 254, 0.8);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1d3557;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f2fe;
+        }
+    </style>
+</head>
+<body class="bg-cyber-900 text-gray-100 selection:bg-cyan-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cyber-900/80 backdrop-blur-md border-b border-cyan-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30">
+                    <i class="fa-solid fa-bolt text-cyber-900 text-xl font-bold"></i>
+                </div>
+                <span class="text-2xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                    SPEEDSOFTWARE
+                </span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="#hizmetler" data-i18n="nav_services" class="hover:text-cyan-400 transition-colors">Usluge</a>
+                <a href="#yapay-zeka" data-i18n="nav_ai" class="hover:text-cyan-400 transition-colors">Vještačka Inteligencija</a>
+                <a href="#hakkimizda" data-i18n="nav_about" class="hover:text-cyan-400 transition-colors">O nama</a>
+                <a href="#iletisim" data-i18n="nav_contact" class="hover:text-cyan-400 transition-colors">Kontakt</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <!-- Language Switcher -->
+                <div class="flex items-center bg-cyber-800 border border-cyan-500/30 rounded-xl p-1 text-xs font-bold">
+                    <button id="btn-me" onclick="setLanguage('me')" class="px-2.5 py-1.5 rounded-lg bg-cyan-500 text-cyber-900 transition-all">ME</button>
+                    <button id="btn-en" onclick="setLanguage('en')" class="px-2.5 py-1.5 rounded-lg text-gray-400 hover:text-white transition-all">EN</button>
+                </div>
+
+                <a href="https://wa.me/905370617400" target="_blank" class="hidden sm:inline-flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-semibold shadow-lg shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-2xl text-cyan-400 focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cyber-800 border-b border-cyan-500/20 px-6 py-4 space-y-3">
+            <a href="#hizmetler" data-i18n="nav_services" class="block hover:text-cyan-400 py-1">Usluge</a>
+            <a href="#yapay-zeka" data-i18n="nav_ai" class="block hover:text-cyan-400 py-1">Vještačka Inteligencija</a>
+            <a href="#hakkimizda" data-i18n="nav_about" class="block hover:text-cyan-400 py-1">O nama</a>
+            <a href="#iletisim" data-i18n="nav_contact" class="block hover:text-cyan-400 py-1">Kontakt</a>
+            <a href="https://wa.me/905370617400" target="_blank" class="flex items-center justify-center space-x-2 bg-emerald-600 text-white w-full py-2.5 rounded-xl font-semibold mt-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>WhatsApp Kontakt</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg min-h-screen flex items-center justify-center pt-20 relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-cyber-900/90 via-cyber-900/60 to-transparent pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/30 px-4 py-1.5 rounded-full text-cyan-400 text-sm font-medium animate-pulse">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span data-i18n="hero_badge">Tehnološki centar Podgorica, Crna Gora</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                    <span data-i18n="hero_title_1">Softver budućnosti sa</span> <br>
+                    <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent text-glow" data-i18n="hero_title_2">
+                        Vještačkom Inteligencijom
+                    </span>
+                </h1>
+                <p data-i18n="hero_desc" class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 font-light">
+                    Kao Speedsoftware, razvijamo softver integrisan vještačkom inteligencijom, vrhunski web dizajn i mobilne aplikacije visokih performansi koje će podići vaše poslovanje na vrh.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                    <a href="https://wa.me/905370617400" target="_blank" class="w-full sm:w-auto flex items-center justify-center space-x-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-cyber-900 font-bold px-8 py-4 rounded-xl shadow-xl shadow-cyan-500/30 transition-all transform hover:-translate-y-1">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span data-i18n="hero_btn_whatsapp">Kontaktirajte putem WhatsApp-a</span>
+                    </a>
+                    <a href="#hizmetler" class="w-full sm:w-auto flex items-center justify-center space-x-2 bg-cyber-700/80 hover:bg-cyber-600 text-gray-200 border border-cyan-500/30 px-8 py-4 rounded-xl font-semibold transition-all">
+                        <span data-i18n="hero_btn_services">Istražite usluge</span>
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start space-x-6 pt-6 text-sm text-gray-400">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-check text-cyan-400"></i>
+                        <span data-i18n="hero_perk_1">100% Originalna rješenja</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-check text-cyan-400"></i>
+                        <span data-i18n="hero_perk_2">24/7 Tehnička podrška</span>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md glow-box rounded-3xl p-6 bg-cyber-800/60 backdrop-blur-md">
+                    <div class="absolute -top-3 -right-3 bg-cyan-500 text-cyber-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md" data-i18n="card_status">
+                        Aktivni sistem
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-cyan-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-terminal"></i>
+                        <span data-i18n="card_title">Brzi kontakt i lokacija</span>
+                    </h3>
+                    <div class="space-y-4 text-sm text-gray-300">
+                        <div class="flex items-start space-x-3 p-3 bg-cyber-700/50 rounded-xl border border-cyan-500/10">
+                            <i class="fa-solid fa-location-dot text-cyan-400 text-lg mt-0.5"></i>
+                            <div>
+                                <strong class="block text-white" data-i18n="card_office">Sjedište</strong>
+                                Podgorica, Crna Gora (Montenegro)
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 p-3 bg-cyber-700/50 rounded-xl border border-cyan-500/10">
+                            <i class="fa-solid fa-envelope text-cyan-400 text-lg mt-0.5"></i>
+                            <div>
+                                <strong class="block text-white" data-i18n="card_email">E-mail adresa</strong>
+                                speedsoftware.me@gmail.com
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 p-3 bg-cyber-700/50 rounded-xl border border-cyan-500/10">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-xl mt-0.5"></i>
+                            <div>
+                                <strong class="block text-white" data-i18n="card_whatsapp">WhatsApp linija</strong>
+                                +382 / 0537 061 74 00
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="https://wa.me/905370617400" target="_blank" class="w-full block text-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-emerald-600/30">
+                            <i class="fa-brands fa-whatsapp mr-2"></i> <span data-i18n="card_btn">Pokreni podršku uživo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="hizmetler" class="py-24 bg-cyber-800/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    <span data-i18n="serv_main_title">Naše visoko-tehnološke</span> <span class="text-cyan-400" data-i18n="serv_main_highlight">usluge</span>
+                </h2>
+                <p data-i18n="serv_sub" class="text-gray-400 text-lg">
+                    Stvaramo moderna, skalabilna i digitalna rješenja vođena vještačkom inteligencijom koja maksimiziraju potencijal vašeg poslovanja.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glow-box bg-cyber-800/80 p-8 rounded-3xl transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-cyber-900 text-2xl font-bold mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-cyan-500/30">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-cyan-400 transition-colors" data-i18n="s1_title">AI Softverska Rješenja</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6" data-i18n="s1_desc">
+                        Automatizujte poslovne procese i uštedite vrijeme pomoću prilagođenih LLM integracija, pametnih sistema automatizacije i analitike podataka.
+                    </p>
+                    <a href="https://wa.me/905370617400?text=Želim%20informacije%20o%20AI%20softveru." target="_blank" class="inline-flex items-center space-x-2 text-cyan-400 font-semibold hover:text-cyan-300">
+                        <span data-i18n="card_offer">Zatraži ponudu</span>
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glow-box bg-cyber-800/80 p-8 rounded-3xl transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-2xl font-bold mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/30">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-cyan-400 transition-colors" data-i18n="s2_title">Modern Web Dizajn</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6" data-i18n="s2_desc">
+                        Gradimo privlačne, user-friendly, u potpunosti prilagođene mobilnim uređajima i visoko performantne korporativne web stranice i e-commerce platforme.
+                    </p>
+                    <a href="https://wa.me/905370617400?text=Želim%20informacije%20o%20web%20dizajnu." target="_blank" class="inline-flex items-center space-x-2 text-cyan-400 font-semibold hover:text-cyan-300">
+                        <span data-i18n="card_offer">Zatraži ponudu</span>
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glow-box bg-cyber-800/80 p-8 rounded-3xl transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-2xl font-bold mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-indigo-500/30">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-cyan-400 transition-colors" data-i18n="s3_title">Razvoj Mobilnih Aplikacija</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6" data-i18n="s3_desc">
+                        Pružamo prilagođena, besprijekorna, nativna i cross-platform rješenja mobilnih aplikacija visokih performansi za iOS i Android platforme.
+                    </p>
+                    <a href="https://wa.me/905370617400?text=Želim%20informacije%20o%20mobilnim%20aplikacijama." target="_blank" class="inline-flex items-center space-x-2 text-cyan-400 font-semibold hover:text-cyan-300">
+                        <span data-i18n="card_offer">Zatraži ponudu</span>
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Feature Section -->
+    <section id="yapay-zeka" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/30 px-4 py-1.5 rounded-full text-cyan-400 text-sm font-medium">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span data-i18n="ai_badge">Arhitektura vođena vještačkom inteligencijom</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                        <span data-i18n="ai_title_1">Gdje se brzina i inteligencija</span> <br><span data-i18n="ai_title_2">spajaju u digitalnom svijetu</span>
+                    </h2>
+                    <p data-i18n="ai_desc" class="text-gray-300 leading-relaxed">
+                        Speedsoftware ide korak dalje od tradicionalnih pristupa softveru integrisanjem algoritama vještačke inteligencije u samu bazu koda. Kroz naše operacije u Podgorici, Crna Gora, isporučujemo projekte po globalnim standardima.
+                    </p>
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-cyan-400 bg-cyan-500/10 p-2 rounded-lg"></i>
+                            <span class="font-medium text-gray-200" data-i18n="ai_l1">Napredna obrada podataka i sistemi automatizacije</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-cyan-400 bg-cyan-500/10 p-2 rounded-lg"></i>
+                            <span class="font-medium text-gray-200" data-i18n="ai_l2">Obuka prilagođenih modela i API integracije</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-cyan-400 bg-cyan-500/10 p-2 rounded-lg"></i>
+                            <span class="font-medium text-gray-200" data-i18n="ai_l3">Visokobrzinska, sigurna i skalabilna infrastruktura</span>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <a href="https://wa.me/905370617400" target="_blank" class="inline-flex items-center space-x-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-emerald-600/30 transition-all">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span data-i18n="ai_btn">Razgovarajmo o projektu</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="glow-box bg-cyber-800/80 p-8 rounded-3xl backdrop-blur-md space-y-6 relative z-10">
+                        <div class="flex items-center justify-between border-b border-cyan-500/20 pb-4">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                            </div>
+                            <span class="text-xs text-cyan-400 font-mono">speed-ai-core.log</span>
+                        </div>
+                        <div class="font-mono text-xs sm:text-sm space-y-2 text-cyan-300">
+                            <p>> Initializing Speedsoftware AI Engine...</p>
+                            <p>> Location: Podgorica, Montenegro [OK]</p>
+                            <p>> Web Design & Mobile Apps Modules Loaded [OK]</p>
+                            <p class="text-emerald-400">> System Ready: Transforming ideas into high-speed code...</p>
+                        </div>
+                        <div class="bg-cyber-900/60 p-4 rounded-xl border border-cyan-500/20 flex items-center justify-between">
+                            <div>
+                                <span class="block text-xs text-gray-400" data-i18n="box_direct">Direktna kontakt linija</span>
+                                <span class="text-sm font-bold text-white">0537 061 74 00</span>
+                            </div>
+                            <a href="https://wa.me/905370617400" target="_blank" class="bg-cyan-500 hover:bg-cyan-400 text-cyber-900 font-bold px-4 py-2 rounded-lg text-xs transition-all">
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-3xl blur-xl opacity-20 -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="hakkimizda" class="py-24 bg-cyber-800/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl space-y-6">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="abt_title">
+                O nama & Vizija
+            </h2>
+            <p data-i18n="abt_desc" class="text-gray-300 text-lg leading-relaxed">
+                <strong class="text-cyan-400">Speedsoftware</strong> je globalna agencija osnovana u Podgorici, glavnom gradu Crne Gore, koja pravi razliku u svijetu softvera sa svojom inovativnom vizijom i infrastrukturom vođenom vještačkom inteligencijom. Pomjeramo granice u web dizajnu, razvoju mobilnih aplikacija i rješenjima vještačke inteligencije; podižemo vaš brend na vodeću poziciju u digitalnom svijetu.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8">
+                <div class="glow-box bg-cyber-800/80 p-6 rounded-2xl">
+                    <span class="block text-3xl font-extrabold text-cyan-400 mb-1" data-i18n="stat_1_val">Global</span>
+                    <span class="text-sm text-gray-400" data-i18n="stat_1_lbl">Podgorica / Montenegro sjedište</span>
+                </div>
+                <div class="glow-box bg-cyber-800/80 p-6 rounded-2xl">
+                    <span class="block text-3xl font-extrabold text-cyan-400 mb-1">100%</span>
+                    <span class="text-sm text-gray-400" data-i18n="stat_2_lbl">Prilagođena softverska arhitektura</span>
+                </div>
+                <div class="glow-box bg-cyber-800/80 p-6 rounded-2xl">
+                    <span class="block text-3xl font-extrabold text-cyan-400 mb-1">24/7</span>
+                    <span class="text-sm text-gray-400" data-i18n="stat_3_lbl">Aktivna podrška i kontakt</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / CTA Section -->
+    <section id="iletisim" class="py-24 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="glow-box bg-gradient-to-br from-cyber-800/90 to-cyber-700/90 p-8 sm:p-12 rounded-3xl backdrop-blur-md text-center space-y-8">
+                <div class="space-y-4">
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="cta_title">
+                        Pokrenimo Vaš Projekat
+                    </h2>
+                    <p data-i18n="cta_desc" class="text-gray-300 text-lg max-w-2xl mx-auto">
+                        Kontaktirajte nas odmah za vaše projekte softvera podržanog vještačkom inteligencijom, web dizajna ili mobilnih aplikacija. Nalazimo se na samo jedan klik od vas!
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a href="https://wa.me/905370617400" target="_blank" class="flex items-center space-x-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-emerald-600/30 transition-all transform hover:-translate-y-1">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span class="text-lg">0537 061 74 00 (WhatsApp)</span>
+                    </a>
+                    <a href="mailto:speedsoftware.me@gmail.com" class="flex items-center space-x-3 bg-cyber-600 hover:bg-cyber-500 text-white font-bold px-8 py-4 rounded-2xl border border-cyan-500/30 transition-all">
+                        <i class="fa-solid fa-envelope text-xl text-cyan-400"></i>
+                        <span class="text-lg">speedsoftware.me@gmail.com</span>
+                    </a>
+                </div>
+
+                <div class="pt-4 border-t border-cyan-500/20 text-sm text-gray-400 flex flex-wrap justify-center items-center gap-6">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-location-dot text-cyan-400"></i>
+                        <span>Podgorica, Crna Gora</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-envelope text-cyan-400"></i>
+                        <span>speedsoftware.me@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cyber-900 border-t border-cyan-500/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
+                    <i class="fa-solid fa-bolt text-cyber-900 font-bold"></i>
+                </div>
+                <span class="text-lg font-bold tracking-wider text-white">SPEEDSOFTWARE</span>
+            </div>
+            <p data-i18n="footer_rights" class="text-sm text-gray-500 text-center">
+                &copy; 2026 Speedsoftware. Sva prava zadržana. Podgorica, Montenegro.
+            </p>
+            <div class="flex items-center space-x-4">
+                <a href="https://wa.me/905370617400" target="_blank" class="w-10 h-10 rounded-xl bg-cyber-800 hover:bg-emerald-600 border border-cyan-500/20 flex items-center justify-center text-gray-300 hover:text-white transition-colors">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                </a>
+                <a href="mailto:speedsoftware.me@gmail.com" class="w-10 h-10 rounded-xl bg-cyber-800 hover:bg-cyan-500 border border-cyan-500/20 flex items-center justify-center text-gray-300 hover:text-cyber-900 transition-colors">
+                    <i class="fa-solid fa-envelope text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Translations & Dual Language Script -->
+    <script>
+        const translations = {
+            me: {
+                nav_services: "Usluge",
+                nav_ai: "Vještačka Inteligencija",
+                nav_about: "O nama",
+                nav_contact: "Kontakt",
+                hero_badge: "Tehnološki centar Podgorica, Crna Gora",
+                hero_title_1: "Softver budućnosti sa",
+                hero_title_2: "Vještačkom Inteligencijom",
+                hero_desc: "Kao Speedsoftware, razvijamo softver integrisan vještačkom inteligencijom, vrhunski web dizajn i mobilne aplikacije visokih performansi koje će podići vaše poslovanje na vrh.",
+                hero_btn_whatsapp: "Kontaktirajte putem WhatsApp-a",
+                hero_btn_services: "Istražite usluge",
+                hero_perk_1: "100% Originalna rješenja",
+                hero_perk_2: "24/7 Tehnička podrška",
+                card_status: "Aktivni sistem",
+                card_title: "Brzi kontakt i lokacija",
+                card_office: "Sjedište",
+                card_email: "E-mail adresa",
+                card_whatsapp: "WhatsApp linija",
+                card_btn: "Pokreni podršku uživo",
+                serv_main_title: "Naše visoko-tehnološke",
+                serv_main_highlight: "usluge",
+                serv_sub: "Stvaramo moderna, skalabilna i digitalna rješenja vođena vještačkom inteligencijom koja maksimiziraju potencijal vašeg poslovanja.",
+                s1_title: "AI Softverska Rješenja",
+                s1_desc: "Automatizujte poslovne procese i uštedite vrijeme pomoću prilagođenih LLM integracija, pametnih sistema automatizacije i analitike podataka.",
+                card_offer: "Zatraži ponudu",
+                s2_title: "Modern Web Dizajn",
+                s2_desc: "Gradimo privlačne, user-friendly, u potpunosti prilagođene mobilnim uređajima i visoko performantne korporativne web stranice i e-commerce platforme.",
+                s3_title: "Razvoj Mobilnih Aplikacija",
+                s3_desc: "Pružamo prilagođena, besprijekorna, nativna i cross-platform rješenja mobilnih aplikacija visokih performansi za iOS i Android platforme.",
+                ai_badge: "Arhitektura vođena vještačkom inteligencijom",
+                ai_title_1: "Gdje se brzina i inteligencija",
+                ai_title_2: "spajaju u digitalnom svijetu",
+                ai_desc: "Speedsoftware ide korak dalje od tradicionalnih pristupa softveru integrisanjem algoritama vještačke inteligencije u samu bazu koda. Kroz naše operacije u Podgorici, Crna Gora, isporučujemo projekte po globalnim standardima.",
+                ai_l1: "Napredna obrada podataka i sistemi automatizacije",
+                ai_l2: "Obuka prilagođenih modela i API integracije",
+                ai_l3: "Visokobrzinska, sigurna i skalabilna infrastruktura",
+                ai_btn: "Razgovarajmo o projektu",
+                box_direct: "Direktna kontakt linija",
+                abt_title: "O nama & Vizija",
+                abt_desc: "Speedsoftware je globalna agencija osnovana u Podgorici, glavnom gradu Crne Gore, koja pravi razliku u svijetu softvera sa svojom inovativnom vizijom i infrastrukturom vođenom vještačkom inteligencijom. Pomjeramo granice u web dizajnu, razvoju mobilnih aplikacija i rješenjima vještačke inteligencije; podižemo vaš brend na vodeću poziciju u digitalnom svijetu.",
+                stat_1_val: "Global",
+                stat_1_lbl: "Podgorica / Montenegro sjedište",
+                stat_2_lbl: "Prilagođena softverska arhitektura",
+                stat_3_lbl: "Aktivna podrška i kontakt",
+                cta_title: "Pokrenimo Vaš Projekat",
+                cta_desc: "Kontaktirajte nas odmah za vaše projekte softvera podržanog vještačkom inteligencijom, web dizajna ili mobilnih aplikacija. Nalazimo se na samo jedan klik od vas!",
+                footer_rights: "© 2026 Speedsoftware. Sva prava zadržana. Podgorica, Montenegro."
+            },
+            en: {
+                nav_services: "Services",
+                nav_ai: "Artificial Intelligence",
+                nav_about: "About Us",
+                nav_contact: "Contact",
+                hero_badge: "Technology Hub Podgorica, Montenegro",
+                hero_title_1: "The Software of Future with",
+                hero_title_2: "Artificial Intelligence",
+                hero_desc: "As Speedsoftware, we develop AI-integrated software, cutting-edge web design, and high-performance mobile applications that elevate your business to the peak.",
+                hero_btn_whatsapp: "Contact via WhatsApp",
+                hero_btn_services: "Explore Services",
+                hero_perk_1: "100% Original Solutions",
+                hero_perk_2: "24/7 Technical Support",
+                card_status: "Active System",
+                card_title: "Quick Contact & Location",
+                card_office: "Headquarters",
+                card_email: "Email Address",
+                card_whatsapp: "WhatsApp Support Line",
+                card_btn: "Start Live Support",
+                serv_main_title: "Our High-Tech",
+                serv_main_highlight: "Services",
+                serv_sub: "We create modern, scalable, and AI-driven digital solutions that maximize your business potential.",
+                s1_title: "AI Software Solutions",
+                s1_desc: "Automate business processes and save time with custom LLM integrations, smart automation systems, and data analytics.",
+                card_offer: "Get Quote",
+                s2_title: "Modern Web Design",
+                s2_desc: "We build eye-catching, user-friendly, fully mobile-responsive, and high-performance corporate websites and e-commerce platforms.",
+                s3_title: "Mobile App Development",
+                s3_desc: "We provide tailored, seamless, native and cross-platform high-performance mobile application solutions for iOS and Android.",
+                ai_badge: "AI-Driven Architecture",
+                ai_title_1: "Where Speed and Intelligence",
+                ai_title_2: "Meet in the Digital World",
+                ai_desc: "Speedsoftware goes a step beyond traditional software approaches by integrating AI algorithms directly into the codebase. Through our operations in Podgorica, Montenegro, we deliver global standards.",
+                ai_l1: "Advanced Data Processing & Automation Systems",
+                ai_l2: "Custom Model Training & API Integrations",
+                ai_l3: "High-Speed, Secure & Scalable Infrastructure",
+                ai_btn: "Let's Discuss the Project",
+                box_direct: "Direct Contact Line",
+                abt_title: "About Us & Vision",
+                abt_desc: "Speedsoftware is a global agency founded in Podgorica, the capital of Montenegro, making a difference in the software world with its innovative vision and AI-driven infrastructure. We push boundaries in web design, mobile app development, and AI solutions, elevating your brand to a leading position in the digital world.",
+                stat_1_val: "Global",
+                stat_1_lbl: "Podgorica / Montenegro HQ",
+                stat_2_lbl: "Custom Software Architecture",
+                stat_3_lbl: "Active Support & Contact",
+                cta_title: "Let's Bring Your Project to Life",
+                cta_desc: "Contact us right away for your AI-supported software, web design, or mobile application projects. We are just a click away!",
+                footer_rights: "© 2026 Speedsoftware. All rights reserved. Podgorica, Montenegro."
+            }
+        };
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            
+            // Toggle button states
+            const btnMe = document.getElementById('btn-me');
+            const btnEn = document.getElementById('btn-en');
+            if(lang === 'me') {
+                btnMe.className = "px-2.5 py-1.5 rounded-lg bg-cyan-500 text-cyber-900 transition-all font-bold";
+                btnEn.className = "px-2.5 py-1.5 rounded-lg text-gray-400 hover:text-white transition-all";
+            } else {
+                btnEn.className = "px-2.5 py-1.5 rounded-lg bg-cyan-500 text-cyber-900 transition-all font-bold";
+                btnMe.className = "px-2.5 py-1.5 rounded-lg text-gray-400 hover:text-white transition-all";
+            }
+
+            // Update all text elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
