@@ -89,11 +89,16 @@
 
             <div class="flex items-center space-x-4">
                 <!-- Language Switcher -->
-                <div class="flex items-center bg-cyber-800 border border-cyan-500/30 rounded-xl p-1 text-xs font-bold">
-                    <button id="btn-me" onclick="setLanguage('me')" class="px-2.5 py-1.5 rounded-lg bg-cyan-500 text-cyber-900 transition-all">ME</button>
-                    <button id="btn-en" onclick="setLanguage('en')" class="px-2.5 py-1.5 rounded-lg text-gray-400 hover:text-white transition-all">EN</button>
-                </div>
-
+                <div class="flex items-center space-x-2">
+    <button id="btn-me" onclick="setLanguage('me')" class="flex items-center space-x-1 px-2 py-1 bg-cyber-800 border border-cyber-700 rounded hover:bg-cyber-700 text-white text-xs">
+        <svg class="w-4 h-3 inline-block rounded-sm object-cover" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg"><path fill="#d90012" d="M0 0h640v480H0z"/><path fill="#ffcc00" d="M213 133h214v214H213z" stroke="#b08000" stroke-width="4"/></svg>
+        <span>ME</span>
+    </button>
+    <button id="btn-en" onclick="setLanguage('en')" class="flex items-center space-x-1 px-2 py-1 bg-cyber-800 border border-cyber-700 rounded hover:bg-cyber-700 text-white text-xs">
+        <svg class="w-4 h-3 inline-block rounded-sm object-cover" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg"><path fill="#012169" d="M0 0h600v300H0z"/><path d="M0 0l600 300m0-300L0 300" stroke="#fff" stroke-width="60"/><path d="M0 0l600 300m0-300L0 300" stroke="#C8102E" stroke-width="40"/><path d="M300 0v300M0 150h600" stroke="#fff" stroke-width="100"/><path d="M300 0v300M0 150h600" stroke="#C8102E" stroke-width="60"/></svg>
+        <span>EN</span>
+    </button>
+</div>
                 <a href="https://wa.me/905370617400" target="_blank" class="hidden sm:inline-flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-semibold shadow-lg shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
                     <span>WhatsApp</span>
