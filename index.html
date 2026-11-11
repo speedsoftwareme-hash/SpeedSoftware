@@ -69,35 +69,35 @@
 <body class="bg-cyber-900 text-gray-100 selection:bg-cyan-500 selection:text-white">
 
     <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-cyber-900/80 backdrop-blur-md border-b border-cyan-500/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cyber-900/80 backdrop-blur-md border-b border-cyber-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+        <!-- Logo ve Altındaki Dil Butonları -->
+        <div class="flex flex-col items-center">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-cyber-500 flex items-center justify-center shadow-lg shadow-cyan-500/20">
                     <i class="fa-solid fa-bolt text-cyber-900 text-xl font-bold"></i>
                 </div>
-                <span class="text-2xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                <span class="text-2xl font-extrabold tracking-wider bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">
                     SPEEDSOFTWARE
                 </span>
             </div>
-            
+            <!-- Dil Seçenekleri Logonun Altında -->
+            <div class="flex items-center gap-2 mt-1">
+                <button id="btn-me" onclick="setLanguage('me')" class="flex items-center space-x-1 px-2 py-0.5 text-xs border border-white/20 rounded text-white bg-cyber-900">
+                    <span>ME</span>
+                </button>
+                <button id="btn-en" onclick="setLanguage('en')" class="flex items-center space-x-1 px-2 py-0.5 text-xs border border-white/20 rounded text-white/60">
+                    <span>EN</span>
+                </button>
+            </div>
+        </div>
             <div class="hidden md:flex items-center space-x-8 font-medium">
                 <a href="#hizmetler" data-i18n="nav_services" class="hover:text-cyan-400 transition-colors">Usluge</a>
                 <a href="#yapay-zeka" data-i18n="nav_ai" class="hover:text-cyan-400 transition-colors">Vještačka Inteligencija</a>
                 <a href="#hakkimizda" data-i18n="nav_about" class="hover:text-cyan-400 transition-colors">O nama</a>
                 <a href="#iletisim" data-i18n="nav_contact" class="hover:text-cyan-400 transition-colors">Kontakt</a>
             </div>
-            <div class="flex items-center space-x-4">
-                <!-- Language Switcher -->
-                <div class="flex flex-wrap items-center justify-end gap-1 sm:gap-2 max-w-full overflow-hidden">
-    <button id="btn-me" onclick="setLanguage('me')" class="flex items-center space-x-1 px-2 py-1 bg-cyber-800 border border-cyber-700 rounded hover:bg-cyber-700 text-white text-xs">
-        <svg class="w-4 h-3 inline-block rounded-sm object-cover" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg"><path fill="#d90012" d="M0 0h640v480H0z"/><path fill="#ffcc00" d="M213 133h214v214H213z" stroke="#b08000" stroke-width="4"/></svg>
-        <span>ME</span>
-    </button>
-    <button id="btn-en" onclick="setLanguage('en')" class="flex items-center space-x-1 px-2 py-1 bg-cyber-800 border border-cyber-700 rounded hover:bg-cyber-700 text-white text-xs">
-        <svg class="w-4 h-3 inline-block rounded-sm object-cover" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg"><path fill="#012169" d="M0 0h600v300H0z"/><path d="M0 0l600 300m0-300L0 300" stroke="#fff" stroke-width="60"/><path d="M0 0l600 300m0-300L0 300" stroke="#C8102E" stroke-width="40"/><path d="M300 0v300M0 150h600" stroke="#fff" stroke-width="100"/><path d="M300 0v300M0 150h600" stroke="#C8102E" stroke-width="60"/></svg>
-        <span>EN</span>
-    </button>
-</div>
                 <button id="mobile-menu-btn" class="md:hidden text-2xl text-cyan-400 focus:outline-none">
                     <i class="fa-solid fa-bars"></i>
                 </button>
